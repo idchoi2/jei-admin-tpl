@@ -9,8 +9,15 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "test"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery-ui": "~1.11.4",
+    "chartjs": "~1.0.2",
+    "bootstrap-datepicker": "~1.4.1",
+    "bootstrap-timepicker": "~0.5.1",
+    "datatables": "~1.10.9",
+    "modernizr": "~3.0.0"
+  }
 }
