@@ -1711,7 +1711,7 @@ a:focus {
 .box-header {
   color: #444;
   display: block;
-  padding: 10px;
+  padding: 15px;
   position: relative;
 }
 .box-header.with-border {
@@ -1764,7 +1764,7 @@ a:focus {
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  padding: 10px;
+  padding: 15px;
 }
 .no-header .box-body {
   border-top-right-radius: 3px;
@@ -1800,7 +1800,7 @@ a:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-top: 1px solid #f4f4f4;
-  padding: 10px;
+  padding: 15px;
   background-color: #ffffff;
 }
 .chart-legend {
@@ -1848,6 +1848,9 @@ a:focus {
 .box-comments .text-muted {
   font-weight: 400;
   font-size: 12px;
+}
+.box-header.box-narrow, .box-body.box-narrow, .box-footer.box-narrow {
+  padding: 10px;
 }
 /* Widget: TODO LIST */
 .todo-list {

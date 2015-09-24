@@ -18,6 +18,9 @@
     "bootstrap-datepicker": "~1.4.1",
     "bootstrap-timepicker": "~0.5.1",
     "datatables": "~1.10.9",
-    "modernizr": "~3.0.0"
+    "modernizr": "~3.0.0",
+    "bootstrap-slider": "*",
+    "seiyria-bootstrap-slider": "~5.1.1",
+    "fullcalendar": "~2.4.0"
   }
 }
