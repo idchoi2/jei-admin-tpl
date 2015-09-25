@@ -620,22 +620,28 @@
 
                                 <div class="col-md-6 form-group">
                                     <label class="control-label">포스터</label>
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;이미지 추가</button>
+                                    </div>
                                     <div class="input-group">
                                         <img src="../../img/photo2.png" alt="Thumbnail" class="thumbnail" style="width: 100%;"/>
                                         <button class="btn btn-danger btn-flat" type="button" style="position: absolute; top: 0px; right: 0px;"><i class="fa fa-trash"></i></button>
                                     </div>
                                     <input type="file" class="" />
-                                    <p class="help-block small">(JPG, PNG, GIF 파일만 업로드 가능합니다)</p>
+                                    <p class="help-block small">(JPG, PNG, GIF ,PDF 파일만 업로드 가능합니다)</p>
                                 </div><!-- /.form-group -->
 
                                 <div class="col-md-6 form-group">
                                     <label class="control-label">브로슈어</label>
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;이미지 추가</button>
+                                    </div>
                                     <div class="input-group">
                                         <img src="../../img/photo3.jpg" alt="Thumbnail" class="thumbnail" style="width: 100%;"/>
                                         <button class="btn btn-danger btn-flat" type="button" style="position: absolute; top: 0px; right: 0px;"><i class="fa fa-trash"></i></button>
                                     </div>
                                     <input type="file" class="" />
-                                    <p class="help-block small">(JPG, PNG, GIF 파일만 업로드 가능합니다)</p>
+                                    <p class="help-block small">(JPG, PNG, GIF,PDF  파일만 업로드 가능합니다)</p>
                                 </div><!-- /.form-group -->
 
                             </div>
@@ -659,47 +665,66 @@
                 <div class="box-body">
 
                     <div class="form-group">
-                        <label class="control-label">내용</label>
-                        <textarea ng-model="content" name="detailCnt" id="detailCnt" rows="3" style="width: 100%;" ></textarea>
-                        <script type="text/javascript">
-                            var oEditors = [];
-                            nhn.husky.EZCreator.createInIFrame({
-                                oAppRef: oEditors,
-                                elPlaceHolder: "detailCnt",
-                                sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
-                                fCreator: "createSEditor2"
-                            });
-                        </script>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <label class="control-label">내용</label>
+                                <textarea ng-model="content" name="detailCnt" id="detailCnt" rows="3" style="width: 100%;" ></textarea>
+                                <script type="text/javascript">
+                                    var oEditors = [];
+                                    nhn.husky.EZCreator.createInIFrame({
+                                        oAppRef: oEditors,
+                                        elPlaceHolder: "detailCnt",
+                                        sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
+                                        fCreator: "createSEditor2"
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label">사이드링크</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">프로그램</label>
-                        <textarea ng-model="content" name="detailPro" id="detailPro" rows="3" style="width: 100%;" ></textarea>
-                        <script type="text/javascript">
-                            var oEditors = [];
-                            nhn.husky.EZCreator.createInIFrame({
-                                oAppRef: oEditors,
-                                elPlaceHolder: "detailPro",
-                                sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
-                                fCreator: "createSEditor2"
-                            });
-                        </script>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <label class="control-label">프로그램</label>
+                                <textarea ng-model="content" name="detailPro" id="detailPro" rows="3" style="width: 100%;" ></textarea>
+                                <script type="text/javascript">
+                                    var oEditors = [];
+                                    nhn.husky.EZCreator.createInIFrame({
+                                        oAppRef: oEditors,
+                                        elPlaceHolder: "detailPro",
+                                        sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
+                                        fCreator: "createSEditor2"
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label">사이드링크</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">아티스트</label>
-                        <textarea ng-model="content" name="detailArt" id="detailArt" rows="3" style="width: 100%;" ></textarea>
-                        <script type="text/javascript">
-                            var oEditors = [];
-                            nhn.husky.EZCreator.createInIFrame({
-                                oAppRef: oEditors,
-                                elPlaceHolder: "detailArt",
-                                sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
-                                fCreator: "createSEditor2"
-                            });
-                        </script>
-                    </div>
-
+                        <div class="row">
+                            <div class="col-md-9">
+                                <label class="control-label">아티스트</label>
+                                <textarea ng-model="content" name="detailArt" id="detailArt" rows="3" style="width: 100%;" ></textarea>
+                                <script type="text/javascript">
+                                    var oEditors = [];
+                                    nhn.husky.EZCreator.createInIFrame({
+                                        oAppRef: oEditors,
+                                        elPlaceHolder: "detailArt",
+                                        sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
+                                        fCreator: "createSEditor2"
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label">사이드링크</label>
+                            </div>
+                        </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
 
