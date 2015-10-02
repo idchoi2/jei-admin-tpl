@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>재능문화센터 관리자 시스템</title>
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="../../dist/jeiadmin-1.0.0.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Import common templates -->
+    <!-- 템플릿 제작을 위한 단순 HTML 페이지를 불러오는 기능으로 실제 구현시 다른 방법으로 include 해야 합니다. -->
+    <link rel="import" id="template-header" href="../_partials/header.html">
+    <link rel="import" id="template-sidebar" href="../_partials/sidebar.html">
+    <link rel="import" id="template-footer" href="../_partials/footer.html">
+    <script src="../../js/loadtemplates.js"></script>
+    <!-- Import common templates -->
+</head>
+<body class="hold-transition skin-red sidebar-mini">
+
+<div class="wrapper">
+
+
+
+    <!-- Header 영역 -->
+    <div id="header"></div>
+    <!-- Sidebar 영역 -->
+    <div id="sidebar"></div>
+
+
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+
+
+
+        <!-- 컨텐츠 헤더 -->
+        <section class="content-header">
+            <h1>페이지 목록</h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 홈</a></li>
+                <li class="">페이지 관리</li>
+                <li class="active">페이지 목록</li>
+            </ol>
+        </section>
+
+
+
+        <!-- 컨텐츠 -->
+        <section class="content">
+
+
+
+            <!-- 검색 필드 -->
+            <div class="box box-solid">
+                <div class="box-body">
+                    <div class="row margin-bottom">
+                        <div class="col-sm-3">
+                            <label class="control-label">검색어</label>
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">전체 <span class="fa fa-caret-down"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li class=""><a href="#">전체</a></li>
+                                        <li class=""><a href="#">제목</a></li>
+                                        <li class=""><a href="#">내용</a></li>
+                                    </ul>
+                                </div><!-- /btn-group -->
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="control-label">승인여부</label>
+                            <div class="radio" style="margin: 0;">
+                                <label class="radio-inline input-sm">
+                                    <input type="radio" name="isApp" checked> 전체
+                                </label>
+                                <label class="radio-inline input-sm">
+                                    <input type="radio" name="isApp"> 승인
+                                </label>
+                                <label class="radio-inline input-sm">
+                                    <input type="radio" name="isApp"> 미승인
+                                </label>
+                            </div>
+                        </div><!-- /.col-->
+                    </div><!-- /.row-->
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-sm btn-default" onclick="Reset();"><i class="fa fa-rotate-left"></i> 초기화</button>
+                        <button type="button" class="btn btn-sm btn-default" onclick="Submit();"><i class="fa fa-search"></i> 검색</button>
+                    </div><!-- /.btn-group-->
+                </div><!-- /.box-body-->
+            </div><!-- /.box-->
+
+            <div class="margin-bottom">
+                <div class="btn-group">
+                    <button type="button" class="btn  btn-success" onclick="window.location='pag-new.html'"><i class="fa fa-plus"></i> 페이지 등록</button>
+                    <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> 삭제</button>
+                </div>
+                <div class="pull-right">
+                    <select class="form-control pull-left margin-r-5" style="width: auto;">
+                        <option value="">25 개씩</option>
+                        <option value="">50 개씩</option>
+                        <option value="">100 개씩</option>
+                    </select>
+                    <select class="form-control pull-left" style="width: auto">
+                        <option value="">기본 번호 오름차순</option>
+                        <option value="">기본 번호 내림차순</option>
+                        <option value="">제목 오름차순</option>
+                        <option value="">제목 내림차순</option>
+                        <option value="">등록날짜 오름차순</option>
+                        <option value="">등록날짜 내림차순</option>
+                    </select>
+                </div>
+            </div><!-- /.btn-group-->
+
+            <!-- 데이터 목록 -->
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <table class="table table-hover table-bordered" id="example1">
+                        <thead>
+                        <tr>
+                            <th class="text-center"><input type="checkbox"></th>
+                            <th>번호<a href="#" class="btnSort onSort onSortAsc pull-right"><i class="fa fa-sort-amount-asc"></i></a></th>
+                            <th>제목<a href="#" class="btnSort pull-right full-opacity-hover"><i class="fa fa-sort"></i></a></th>
+                            <th>등록날짜<a href="#" class="btnSort pull-right full-opacity-hover"><i class="fa fa-sort"></i></a></th>
+                            <th>승인여부</th>
+                            <th>관리</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="text-center"><input type="checkbox"></td>
+                            <td><a href="pag-new.html">5</a></td>
+                            <td><a href="pag-new.html">페이지 제목</a></td>
+                            <td><a href="pag-new.html">YYYY-MM-DD</a></td>
+                            <td><a href="pag-new.html">승인</a></td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-default " title="Disabled"><i class="fa fa-lock"></i></button>
+                                <button type="button" class="delete_mentor btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><input type="checkbox"></td>
+                            <td><a href="pag-new.html">4</a></td>
+                            <td><a href="pag-new.html">페이지 제목</a></td>
+                            <td><a href="pag-new.html">YYYY-MM-DD</a></td>
+                            <td><a href="pag-new.html">승인</a></td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-default " title="Disabled"><i class="fa fa-lock"></i></button>
+                                <button type="button" class="delete_mentor btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><input type="checkbox"></td>
+                            <td><a href="pag-new.html">3</a></td>
+                            <td><a href="pag-new.html">페이지 제목</a></td>
+                            <td><a href="pag-new.html">YYYY-MM-DD</a></td>
+                            <td><a href="pag-new.html">승인</a></td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-default " title="Disabled"><i class="fa fa-lock"></i></button>
+                                <button type="button" class="delete_mentor btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><input type="checkbox"></td>
+                            <td><a href="pag-new.html">2</a></td>
+                            <td><a href="pag-new.html">페이지 제목</a></td>
+                            <td><a href="pag-new.html">YYYY-MM-DD</a></td>
+                            <td><a href="pag-new.html">승인</a></td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-default " title="Disabled"><i class="fa fa-lock"></i></button>
+                                <button type="button" class="delete_mentor btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"><input type="checkbox"></td>
+                            <td><a href="pag-new.html">1</a></td>
+                            <td><a href="pag-new.html">페이지 제목</a></td>
+                            <td><a href="pag-new.html">YYYY-MM-DD</a></td>
+                            <td><a href="pag-new.html">승인</a></td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-default " title="Disabled"><i class="fa fa-lock"></i></button>
+                                <button type="button" class="delete_mentor btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="6" class="text-center">데이터가 존재하지 않습니다.</th>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                    <div class="row ">
+                        <div class="col-sm-4">
+                            <div style="margin: 27px 0px;">총 ## 개의 데이터</div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="pull-right">
+                                <!-- Pagination -->
+                                <ul class="pagination">
+                                    <li class="paginate_button previous disabled" id=""><a href="#">이전</a></li>
+                                    <li class="paginate_button active"><a href="#">1</a></li>
+                                    <li class="paginate_button"><a href="#">2</a></li>
+                                    <li class="paginate_button"><a href="#">3</a></li>
+                                    <li class="paginate_button"><a href="#">4</a></li>
+                                    <li class="paginate_button"><a href="#">5</a></li>
+                                    <li class="paginate_button next"><a href="#">다음</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.box-footer -->
+            </div><!-- /.box -->
+
+            <div class="">
+                <div class="btn-group">
+                    <button type="button" class="btn  btn-success" onclick="window.location='pag-new.html'"><i class="fa fa-plus"></i> 페이지 등록</button>
+                    <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> 삭제</button>
+                </div>
+                <div class="pull-right">
+                    <select class="form-control pull-left margin-r-5" style="width: auto;">
+                        <option value="">25 개씩</option>
+                        <option value="">50 개씩</option>
+                        <option value="">100 개씩</option>
+                    </select>
+                    <select class="form-control pull-left" style="width: auto">
+                        <option value="">기본 번호 오름차순</option>
+                        <option value="">기본 번호 내림차순</option>
+                        <option value="">이름 오름차순</option>
+                        <option value="">이름 내림차순</option>
+                        <option value="">등록날짜 오름차순</option>
+                        <option value="">등록날짜 내림차순</option>
+                    </select>
+                </div>
+            </div><!-- /.btn-group-->
+
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+
+
+
+
+    <!-- Footer 영역 -->
+    <div id="footer"></div>
+
+
+</div><!-- ./wrapper -->
+
+<!-- Load JS -->
+<script src="../../dist/jeiadmin-1.0.0.min.js"></script>
+
+<script>
+
+    $('.btnSort').click(function(e) {
+        e.preventDefault();
+
+        var onSort = $(this).hasClass("onSort");
+        var onSortAsc = $(this).hasClass("onSortAsc");
+
+
+        $('.btnSort').find(".fa").removeClass("fa-sort-amount-asc");
+        $('.btnSort').find(".fa").removeClass("fa-sort-amount-desc");
+        $('.btnSort').find(".fa").addClass("fa-sort");
+        $('.btnSort').removeClass("onSort");
+        $('.btnSort').removeClass("onSortDesc");
+        $('.btnSort').removeClass("onSortAsc");
+        $('.btnSort').addClass("full-opacity-hover");
+
+
+        $(this).find(".fa").removeClass("fa-sort");
+        $(this).removeClass("full-opacity-hover");
+        $(this).addClass("onSort");
+
+
+        if(onSort) {
+            if(onSortAsc) {
+                $(this).addClass("onSortDesc");
+                $(this).find(".fa").addClass("fa-sort-amount-desc");
+            } else {
+                $(this).addClass("onSortAsc");
+                $(this).find(".fa").addClass("fa-sort-amount-asc");
+            }
+        } else {
+            $(this).find(".fa").addClass("fa-sort-amount-asc");
+        }
+    });
+
+</script>
+
+</body>
+</html>

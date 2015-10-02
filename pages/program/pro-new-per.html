@@ -66,7 +66,7 @@
                 <div class="col-md-6">
                     <!-- 기본정보 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">기본 정보</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -96,6 +96,17 @@
                                     <option value="">기타</option>
                                 </select>
                                 <p class="help-block small">필수 입력 필드입니다.</p>
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label class="control-label">승인여부 <em>*</em></label>
+                                <div class="radio">
+                                    <label class="radio-inline" style="margin-right: 10px;">
+                                        <input type="radio" name="use" checked="" value="1"> 승인
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="use" value="0"> 미승인
+                                    </label>
+                                </div>
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <label class="control-label">장소 <em>*</em></label>
@@ -286,6 +297,11 @@
                                 <textarea class="form-control" placeholder="개요" rows="3">2015년, 백건우가 라흐마니노프와 스크랴빈을 바라보며 러시안 솔로 레퍼토리 등정에 나선다. 2015년은 스크랴빈(1872-1915) 서거 100주년이 되는 해이다. </textarea>
                             </div><!-- /.form-group -->
                             <div class="form-group">
+                                <label class=" control-label">인터파크 예매번호</label>
+                                <input type="text" class="form-control" placeholder="인터파크 예매번호" />
+                                <p class="help-block small">정확한 예매 아이템 번호를 기입해야 합니다.</p>
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
                                 <label class=" control-label">예매문의</label>
                                 <input type="text" class="form-control" placeholder="예매문의" />
                             </div><!-- /.form-group -->
@@ -307,7 +323,7 @@
 
                     <!-- 프로그램 시간표 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">프로그램 시간표</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -357,7 +373,7 @@
 
                     <!-- 연관 인물 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">연관 인물</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -387,9 +403,9 @@
                             </div>
 
                             <div class="">
-                                <span class="fc-toolbar bg-gray">백건우 <a href="#" class="btn  btn-xs"><i class="fa fa-minus"></i></a></span>
-                                <span class="fc-toolbar bg-gray">백건우 <a href="#" class="btn  btn-xs"><i class="fa fa-minus"></i></a></span>
-                                <span class="fc-toolbar bg-gray">백건우 <a href="#" class="btn  btn-xs"><i class="fa fa-minus"></i></a></span>
+                                <span class="fc-toolbar bg-gray">백건우 <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-close"></i></a></span>
+                                <span class="fc-toolbar bg-gray">백건우 <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-close"></i></a></span>
+                                <span class="fc-toolbar bg-gray">백건우 <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-close"></i></a></span>
                             </div>
 
                         </div><!-- /.box-body -->
@@ -397,7 +413,7 @@
 
                     <!-- 연계 프로그램 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">연계 프로그램</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -463,7 +479,7 @@
                 <div class="col-md-8">
                     <!-- 메인 슬라이드 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">메인 슬라이드</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -590,7 +606,7 @@
                 <div class="col-md-4">
                     <!-- 썸네일 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">썸네일</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -611,7 +627,7 @@
 
                     <!-- 기타 이미지 -->
                     <div class="box">
-                        <div class="box-header">
+                        <div class="box-header with-border">
                             <h3 class="box-title">기타 이미지</h3>
                         </div><!--/.box-header-->
                         <div class="box-body">
@@ -659,72 +675,162 @@
 
             <!-- 프로그램 상세 내용 -->
             <div class="box">
-                <div class="box-header">
+                <div class="box-header with-border">
                     <h3 class="box-title">프로그램 상세 내용</h3>
                 </div><!--/.box-header-->
                 <div class="box-body">
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <label class="control-label">내용</label>
-                                <textarea ng-model="content" name="detailCnt" id="detailCnt" rows="3" style="width: 100%;" ></textarea>
-                                <script type="text/javascript">
-                                    var oEditors = [];
-                                    nhn.husky.EZCreator.createInIFrame({
-                                        oAppRef: oEditors,
-                                        elPlaceHolder: "detailCnt",
-                                        sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
-                                        fCreator: "createSEditor2"
-                                    });
-                                </script>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="control-label">사이드링크</label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <label class="control-label">프로그램</label>
-                                <textarea ng-model="content" name="detailPro" id="detailPro" rows="3" style="width: 100%;" ></textarea>
-                                <script type="text/javascript">
-                                    var oEditors = [];
-                                    nhn.husky.EZCreator.createInIFrame({
-                                        oAppRef: oEditors,
-                                        elPlaceHolder: "detailPro",
-                                        sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
-                                        fCreator: "createSEditor2"
-                                    });
-                                </script>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="control-label">사이드링크</label>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="form-group panel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <label class="control-label">내용</label>
+                                    <textarea ng-model="content" name="detailCnt" id="detailCnt" rows="3" style="width: 100%;" ></textarea>
+                                    <script type="text/javascript">
+                                        var oEditors = [];
+                                        nhn.husky.EZCreator.createInIFrame({
+                                            oAppRef: oEditors,
+                                            elPlaceHolder: "detailCnt",
+                                            sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
+                                            fCreator: "createSEditor2"
+                                        });
+                                    </script>
+                                </div><!-- /.col -->
+                                <div class="col-md-3">
+                                    <label class="control-label">사이드링크</label>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <label class="control-label">아티스트</label>
-                                <textarea ng-model="content" name="detailArt" id="detailArt" rows="3" style="width: 100%;" ></textarea>
-                                <script type="text/javascript">
-                                    var oEditors = [];
-                                    nhn.husky.EZCreator.createInIFrame({
-                                        oAppRef: oEditors,
-                                        elPlaceHolder: "detailArt",
-                                        sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
-                                        fCreator: "createSEditor2"
-                                    });
-                                </script>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="control-label">사이드링크</label>
-                            </div>
-                        </div>
+
+                                    <div class="well well-sm">
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                <select class="form-control input-sm">
+                                                    <option value="">----- 사이드 링크를 선택해주세요 -----</option>
+                                                    <option value="">사이드링크 1</option>
+                                                    <option value="">사이드링크 2</option>
+                                                    <option value="">사이드링크 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <button type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-plus"></i> 추가</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div><!-- /.col -->
+                            </div><!--/.row-->
+                        </div><!--/.panel-body-->
+                    </div><!--/.form-group-->
+
+
+
+                    <div class="form-group panel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <label class="control-label">프로그램</label>
+                                    <textarea ng-model="content" name="detailPro" id="detailPro" rows="3" style="width: 100%;" ></textarea>
+                                    <script type="text/javascript">
+                                        var oEditors = [];
+                                        nhn.husky.EZCreator.createInIFrame({
+                                            oAppRef: oEditors,
+                                            elPlaceHolder: "detailPro",
+                                            sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
+                                            fCreator: "createSEditor2"
+                                        });
+                                    </script>
+                                </div><!-- /.col -->
+                                <div class="col-md-3">
+                                    <label class="control-label">사이드링크</label>
+
+
+
+                                    <!-- 사이드링크 추가 -->
+                                    <div class="well well-sm">
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                <select class="form-control input-sm">
+                                                    <option value="">----- 사이드 링크를 선택해주세요 -----</option>
+                                                    <option value="">사이드링크 1</option>
+                                                    <option value="">사이드링크 2</option>
+                                                    <option value="">사이드링크 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <button type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-plus"></i> 추가</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- 사이드링크 등록 목록 -->
+                                    <ul class="todo-list small">
+                                        <li class=""><span class="text">사이드링크 1</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                        <li class=""><span class="text">사이드링크 2</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                        <li class=""><span class="text">사이드링크 3</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                        <li class=""><span class="text">사이드링크 4</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                        <li class=""><span class="text">사이드링크 5</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                        <li class=""><span class="text">사이드링크 6</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                        <li class=""><span class="text">사이드링크 7</span> <a href="#" class="pull-right btn btn-xs btn-danger" style="position: relative; top: -2px;"><i class="fa fa-close"></i></a></li>
+                                    </ul>
+
+
+
+                                </div><!-- /.col -->
+                            </div><!--/.row-->
+                        </div><!--/.panel-body-->
+                    </div><!--/.form-group-->
+
+
+
+                    <div class="form-group panel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <label class="control-label">아티스트</label>
+                                    <textarea ng-model="content" name="detailArt" id="detailArt" rows="3" style="width: 100%;" ></textarea>
+                                    <script type="text/javascript">
+                                        var oEditors = [];
+                                        nhn.husky.EZCreator.createInIFrame({
+                                            oAppRef: oEditors,
+                                            elPlaceHolder: "detailArt",
+                                            sSkinURI: "../../plugins/smarteditor/SmartEditor2Skin.html",
+                                            fCreator: "createSEditor2"
+                                        });
+                                    </script>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label">사이드링크</label>
+
+
+                                    <div class="well well-sm">
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                <select class="form-control input-sm">
+                                                    <option value="">----- 사이드 링크를 선택해주세요 -----</option>
+                                                    <option value="">사이드링크 1</option>
+                                                    <option value="">사이드링크 2</option>
+                                                    <option value="">사이드링크 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <button type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-plus"></i> 추가</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div><!--/.row-->
+                        </div><!--/.panel-body-->
+                    </div><!--/.form-group-->
+
+
+
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
 
